@@ -1,0 +1,17 @@
+include html.pug
+    div(class="jumbotron")
+        h1(class="titulo") #{title}
+        form(action="/produtos/salva", method="post")
+            div(class="form-group")
+                label(for="titulo") Título
+                input(type="text", id="titulo", name="titulo", class="form-control", placeholder="Título do livro")
+
+            div(class="form-group")
+                label(for="descricao") Descrição
+                textarea(id="descricao", name="descricao", class="form-control", placeholder="Fale sobre o livro", rows="2")
+
+            div(class="form-group")
+                label(for="preco") Preço
+                input(type="number", id="preco", name="preco", class="form-control", placeholder="Preço do livro")
+
+            button(type="submit", class="btn btn-primary") Incluir
