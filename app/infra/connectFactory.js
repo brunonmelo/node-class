@@ -8,6 +8,10 @@ const cn = {
     database: 'casadocodigo'
 };
 
-const db = pgp(cn);
+function getDb() {
+    return pgp(cn);
+}
 
-module.exports = db;
+module.exports = () => {
+    return getDb
+};

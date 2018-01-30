@@ -1,8 +1,8 @@
 module.exports = (app) => {
-    const db = app.infra.produtosDao;
-    
+    const produtosDao = new app.infra.ProdutosDao();
+
     app.get('/produtos', (req, resp) => {
-        db.getLivros()
+        produtosDao.getLivros()
             .then(result => resp.render('produtos', {title: 'Produtos', produtos: result}));
     });
 
@@ -12,7 +12,7 @@ module.exports = (app) => {
 
     app.post('/produtos/salva',  (req, resp) => {
         console.log(typeof req.body);
-        db.addLivro(req.body)
+        produtosDao.addLivro(req.body)
             .then(result => resp.render('main', {title: 'Resultado', titulo: result}));
     })
 };
