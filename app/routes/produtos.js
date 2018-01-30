@@ -1,6 +1,7 @@
 module.exports = (app) => {
-    const produtosDao = new app.infra.ProdutosDao();
-
+    const ProdutosDao = app.infra.ProdutosDao;
+	let produtosDao = new ProdutosDao();
+	
     app.get('/produtos', (req, resp) => {
         produtosDao.getLivros()
             .then(result => resp.render('produtos', {title: 'Produtos', produtos: result}));

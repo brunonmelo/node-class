@@ -2,18 +2,21 @@ include html.pug
     div(class='jumbotron')
         h1(class="titulo") #{title}
         table(class='table')
-            tr
-                th Id
-                th Titulo
-                th Descrição
-                th Preço
-        if produtos
-            each produto in produtos
-                tr 
-                    td #{produto.id}
-                    td #{produto.titulo}
-                    td #{produto.descricao}
-                    td R$#{produto.preco.toFixed(2).replace('.', ',')}
-        else 
-             p Não existe produtos para exibir!
+            thead
+                tr
+                    th Id
+                    th Titulo
+                    th Descrição
+                    th Preço
+            tbody
+                if produtos            
+                    each produto in produtos
+                        tr 
+                            td #{produto.id}
+                            td #{produto.titulo}
+                            td #{produto.descricao}
+                            td R$#{produto.preco.toFixed(2).replace('.', ',')}
+                else 
+                    tr
+                        td(colspan="4") Não existe produtos para exibir!
     
