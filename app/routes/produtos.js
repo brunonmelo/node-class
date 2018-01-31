@@ -11,9 +11,9 @@ module.exports = (app) => {
         resp.render('form', {title: "Novo livro"});
     });
 
-    app.post('/produtos/salva',  (req, resp) => {
-        console.log(typeof req.body);
-        produtosDao.addLivro(req.body)
-            .then(result => resp.render('main', {title: 'Resultado', titulo: result}));
+    app.post('/produtos',  (req, resp) => {
+        const produto = req.body;
+        produtosDao.addLivro(produto)
+            .then(() => resp.redirect('/produtos'));
     })
 };

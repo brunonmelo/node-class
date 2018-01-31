@@ -7,11 +7,18 @@ class ProdutosDao {
 
     getLivros() {
         return this._db.any('select * from livros')
-        .catch(err => console.error(err));
+            .catch(err => console.error(err));
     }
 
-    addLivro() {
-        return this._db.none(`INSERT INTO livros(titulo, descricao, preco) VALUES ('${livro.titulo}', '${livro.descricao}', ${livro.preco})`);
+    addLivro(livro) {
+        return this._db
+            .none(`INSERT INTO livros(titulo, descricao, preco) VALUES ($1, $2, $3)`,
+                [
+                    livro.titulo,
+                    livro.descricao,
+                    livro.preco
+                ])
+            .catch(err => console.error(err));
     }
     
 }

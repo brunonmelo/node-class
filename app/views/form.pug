@@ -1,7 +1,7 @@
 include html.pug
     div(class="jumbotron")
         h1(class="titulo") #{title}
-        form(action="/produtos/salva", method="post")
+        form(action="/produtos", method="post")
             div(class="form-group")
                 label(for="titulo") Título
                 input(type="text", id="titulo", name="titulo", class="form-control", placeholder="Título do livro")
@@ -12,6 +12,6 @@ include html.pug
 
             div(class="form-group")
                 label(for="preco") Preço
-                input(type="number", id="preco", name="preco", class="form-control", placeholder="Preço do livro")
+                input(type="number", step="0.01", id="preco", name="preco", class="form-control", placeholder="Preço do livro")
 
             button(type="submit", class="btn btn-primary") Incluir
