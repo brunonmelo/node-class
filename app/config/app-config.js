@@ -8,8 +8,8 @@ module.exports = () => {
     app.set('view engine', 'pug');
     app.set('views', './app/views'); 
 
-    app.use(bodyParser.json()); 
     app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(bodyParser.json()); 
     
     load('infra', {cwd: 'app'})
         .then('routes')

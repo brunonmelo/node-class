@@ -5,7 +5,7 @@
   "description": "Aulas do alura sobre o Node.js",
   "license": "ISC",
   "scripts": {
-    "start": "node app",
+    "start": "nodemon app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "main": "index.js",
@@ -13,6 +13,7 @@
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "express-load": "^1.1.16",
+    "object-to-xml": "^1.1.0",
     "pg-promise": "^7.3.2",
     "pug": "^2.0.0-rc.4"
   },
